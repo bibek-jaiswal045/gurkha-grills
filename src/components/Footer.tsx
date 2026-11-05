@@ -33,12 +33,7 @@ export const Footer = () => (
     </div>
     <div className="wrap flex flex-wrap justify-between gap-2 border-t border-line pb-7 pt-5 text-sm text-mist">
       <span>© {new Date().getFullYear()} {siteConfig.name}</span>
-      <span>
-        Designed by{" "}
-        <a href={siteConfig.designer.instagram} target="_blank" rel="noopener noreferrer" className="hover:text-snow">
-          {siteConfig.designer.name}
-        </a>
-      </span>
+      <span className="font-mono">{siteConfig.social.handle}</span>
     </div>
   </footer>
 );

@@ -47,12 +47,6 @@ export const siteConfig = {
     notifyEndpoint: "",
     contactEndpoint: "", // Contact form, including catering enquiries
   },
-
-  // Designer Credit
-  designer: {
-    name: "Bibek Jaiswal",
-    instagram: "https://www.instagram.com/bibek_jaiswal45",
-  },
 };
 
 // Helper formatters
