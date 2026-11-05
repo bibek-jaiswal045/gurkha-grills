@@ -1,0 +1,135 @@
+@import "@fontsource/big-shoulders-display/latin-700";
+@import "@fontsource/big-shoulders-display/latin-800";
+@import "@fontsource/figtree/latin-400";
+@import "@fontsource/figtree/latin-500";
+@import "@fontsource/figtree/latin-600";
+@import "@fontsource/ibm-plex-mono/latin-400";
+@import "@fontsource/ibm-plex-mono/latin-500";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* The Gurkha Grills design system
+   A night-market trailer: matte-black panels, chalk-white type, chilli-red signage,
+   and a Himalayan ridge line as the recurring divider. Single dark look on purpose:
+   it matches the trailer wrap.
+
+   Brand colours:
+   - Ink     #0c0b0d  page background (trailer matte black)
+   - Panel   #161418  raised surfaces
+   - Snow    #f2efea  primary text
+   - Mist    #a8a2a9  secondary text
+   - Chilli  #d6202c  logo red: CTAs, category headings
+   - Ember   #ff8a3d  charcoal glow: small highlights only
+
+   Typography:
+   - Display: Big Shoulders Display (signage)
+   - Body:    Figtree
+   - Labels / prices: IBM Plex Mono
+*/
+
+@layer base {
+  :root {
+    color-scheme: dark;
+
+    --ink: 280 8% 4%;
+    --panel: 280 7% 8%;
+    --line: 285 8% 17%;
+    --snow: 36 22% 93%;
+    --mist: 300 4% 65%;
+    --chilli: 356 74% 48%;
+    --chilli-deep: 354 76% 35%;
+    --ember: 23 100% 62%;
+    --veg: 123 38% 59%;
+
+    /* shadcn semantic tokens mapped onto the brand */
+    --background: var(--ink);
+    --foreground: var(--snow);
+    --card: var(--panel);
+    --card-foreground: var(--snow);
+    --popover: var(--panel);
+    --popover-foreground: var(--snow);
+    --primary: var(--chilli);
+    --primary-foreground: var(--snow);
+    --secondary: var(--panel);
+    --secondary-foreground: var(--snow);
+    --muted: var(--panel);
+    --muted-foreground: var(--mist);
+    --accent: var(--line);
+    --accent-foreground: var(--snow);
+    --destructive: var(--ember);
+    --destructive-foreground: var(--ink);
+    --border: var(--line);
+    --input: var(--line);
+    --ring: var(--ember);
+
+    --radius: 6px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 84px;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body antialiased;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3 {
+    @apply font-display font-extrabold uppercase;
+    line-height: 0.95;
+    letter-spacing: 0.01em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid hsl(var(--ember));
+    outline-offset: 3px;
+  }
+
+  [hidden] {
+    display: none !important;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+}
+
+@layer components {
+  /* Side gutter that also clears a phone's side safe-area */
+  .wrap {
+    @apply mx-auto w-full max-w-[1180px];
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24 lg:py-28;
+  }
+
+  .eyebrow {
+    @apply font-mono text-[0.85rem] uppercase tracking-[0.14em] text-ember;
+  }
+
+  .label-mono {
+    @apply font-mono text-[0.72rem] uppercase tracking-[0.12em];
+  }
+
+  .h-section {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+}
