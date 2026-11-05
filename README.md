@@ -19,15 +19,15 @@ Without a custom domain the site is served from `/<repo>/`; add `public/CNAME` w
 ## Editing content
 | What | File |
 |---|---|
-| Name, tagline, launch status, email, socials, currency, form endpoints | `src/config/site.ts` |
+| Name, tagline, launch status, email, phone, WhatsApp, service area, socials, currency, form endpoint | `src/config/site.ts` |
 | Menu categories, dishes, prices, veg/spice tags, dish photos | `src/data/menu.ts` |
-| Locations / schedule | `src/data/schedule.ts` |
+| Location stops + Google Maps links | `src/data/schedule.ts` |
 | Gallery photos and captions | `src/data/gallery.ts` |
 | Images | `src/assets/` (WebP) |
 | Brand colours and fonts | `src/index.css`, `tailwind.config.ts` |
 
 ## Forms
-Set `forms.notifyEndpoint` / `forms.cateringEndpoint` in `src/config/site.ts` (e.g. a Formspree URL).
+Set `forms.notifyEndpoint` / `forms.contactEndpoint` in `src/config/site.ts` (e.g. a Formspree URL).
 While empty, forms validate and show a "preview only" message without sending anything.
 
 ## Going dynamic (Phase 2)
